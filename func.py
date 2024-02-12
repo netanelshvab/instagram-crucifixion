@@ -15,6 +15,8 @@ def log_in_to_account(bot):
     bot.interactive_login(str(user_name)) #log-in to the user-name profile + password asking
     profile = instaloader.Profile.from_username(bot.context, user_name)
     
+    print("Logged in successfully")
+    
     return profile
 
 
@@ -35,6 +37,7 @@ def get_followers_of_main_account(profile):
 
     followers_info = []
     for follower in profile.get_followers():
+        print(follower.username)
         follower_info = {
             "user_name": follower.username,
             "profile_photo": follower.get_profile_pic_url,
@@ -43,6 +46,7 @@ def get_followers_of_main_account(profile):
         
         # Fetch the follower's followers
         for follower_of_follower in follower.get_followers():
+            print(follower_of_follower.username)
             follower_info["follower_followers"].append(
                 {
                     "user_name": follower_of_follower.username,
