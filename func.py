@@ -1,19 +1,19 @@
 import instaloader
 
-def log_in_to_account(bot):
+def log_in_to_account(bot, username: str, password: str):
     """
     Log into an Instagram account using Instaloader.
     
     Args:
-    - bot: Instaloader instance
+    - bot (Instaloader): An instance of Instaloader.
+    - username (str): The username of the Instagram account.
+    - password (str): The password of the Instagram account.
     
     Returns:
-    - profile: Instaloader Profile instance
+    - profile (Profile): An instance of Instaloader Profile representing the logged-in user's profile.
     """
-    
-    user_name = input("Enter user name: ")
-    bot.interactive_login(str(user_name)) #log-in to the user-name profile + password asking
-    profile = instaloader.Profile.from_username(bot.context, user_name)
+    bot.login(username, password)  # Log in to the Instagram account using the provided username and password
+    profile = instaloader.Profile.from_username(bot.context, username)  # Get the profile of the logged-in user
     
     print("Logged in successfully")
     
