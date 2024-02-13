@@ -36,7 +36,7 @@ def get_followers_of_main_account(profile):
     """
 
     followers_info = []
-    for follower in profile.get_followers():
+    for follower in profile.get_followees():
         print(follower.username)
         follower_info = {
             "user_name": follower.username,
@@ -45,7 +45,7 @@ def get_followers_of_main_account(profile):
         }
         
         # Fetch the follower's followers
-        for follower_of_follower in follower.get_followers():
+        for follower_of_follower in follower.get_followees():
             print(follower_of_follower.username)
             follower_info["follower_followers"].append(
                 {
