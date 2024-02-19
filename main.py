@@ -25,13 +25,16 @@ def main(args=None):
         else:
             didnt_pass_true = False
 
-    #get the main account followers and the followers followers info
+    #get the main account followers
     followers_info = get_followers_of_main_account(profile=profile)
     
     # Print the list of followers
     print("Followers:")
     for follower in followers_info:
         print(follower)
+
+    #ask which usernames to crucifixion
+    user_name_list = ask_for_followers_to_crucifixion(followers_info)
 
 
 if __name__ == "__main__":
