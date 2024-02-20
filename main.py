@@ -28,13 +28,13 @@ def main(args=None):
     #get the main account followers
     followers_info = get_followers_of_main_account(profile=profile)
     
-    # Print the list of followers
-    print("Followers:")
-    for follower in followers_info:
-        print(follower)
-
     #ask which usernames to crucifixion
-    user_name_list = ask_for_followers_to_crucifixion(followers_info)
+    user_name_list_to_crucifixion = ask_for_followers_to_crucifixion(followers_info)
+
+    #get the users list before crufixion and return the mutual users
+    mutual_users_list = crucifixion_in_order_to_find_mutual_users(user_name_list_to_crucifixion, profile)
+
+    print(mutual_users_list)
 
 
 if __name__ == "__main__":
